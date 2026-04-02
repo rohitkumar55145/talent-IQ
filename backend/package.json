@@ -13,8 +13,9 @@
   "license": "ISC",
   "type1": "commonjs",
   "dependencies": {
-    "dotenv": "^17.2.3",
+    "dotenv": "^17.3.1",
     "express": "^5.1.0",
+    "mongodb": "^7.1.1",
     "mongoose": "^8.19.1"
   },
   "devDependencies": {
