@@ -13,10 +13,14 @@
   "license": "ISC",
   "type1": "commonjs",
   "dependencies": {
+    "@clerk/express": "^1.7.41",
+    "clerk-react": "^0.1.9",
+    "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.1.0",
     "mongodb": "^7.1.1",
     "mongoose": "^8.19.1",
+    "serve": "^14.2.6",
     "stream-chat": "^9.24.0"
   },
   "devDependencies": {

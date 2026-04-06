@@ -1,10 +1,20 @@
 import { useState } from "react"
 import "./App.css"
+import {
+  SignInButton,
+  SignedOut,
+  SignUpButton,
+  UserButton,
+} from "@clerk/clerk-react"
 
 function App() {
   return (
     <>
-      <div>Login</div>
+      <header>
+        <SignInButton>
+          <SignedOut />
+        </SignInButton>
+      </header>
     </>
   )
 }
