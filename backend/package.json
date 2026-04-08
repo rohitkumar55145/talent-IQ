@@ -14,10 +14,12 @@
   "type1": "commonjs",
   "dependencies": {
     "@clerk/express": "^1.7.41",
+    "@stream-io/node-sdk": "^0.7.12",
     "clerk-react": "^0.1.9",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.1.0",
+    "inngest": "^4.1.2",
     "mongodb": "^7.1.1",
     "mongoose": "^8.19.1",
     "serve": "^14.2.6",
