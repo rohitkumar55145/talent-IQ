@@ -1,42 +1,31 @@
 import mongoose from "mongoose"
 
-const sessionSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
-    problem: {
+    clerkId: {
       type: String,
       required: true,
+      unique: true,
+      index: true,
     },
-    difficulty: {
+    email: {
       type: String,
-      enum: ["easy", "medium", "hard"],
       required: true,
+      trim: true,
     },
-    host: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },
-    participant: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      default: null,
-    },
-    status: {
+    name: {
       type: String,
-      enum: ["active", "completed"],
-      default: "active",
+      required: true,
+      trim: true,
     },
-    // stream video call ID
-    callId: {
+    profileImage: {
       type: String,
       default: "",
     },
   },
-  {
-    timestamps: true,
-  },
+  { timestamps: true },
 )
 
-const Session = mongoose.model("Session", sessionSchema)
+const User = mongoose.model("User", userSchema)
 
-export default Session
+export default User

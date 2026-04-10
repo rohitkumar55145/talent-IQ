@@ -1,10 +1,4 @@
-import { useState } from "react"
 import {
-  SignInButton,
-  SignedOut,
-  SignedIn,
-  UserButton,
-  SignOutButton,
   useUser,
 } from "@clerk/clerk-react"
 import { Route, Routes, Navigate } from "react-router"
@@ -32,8 +26,3 @@ function App() {
 }
 
 export default App
-
-// tw, daisyui, react-router, react-hot-toast,
-// todo: react-query aka tanstack querk, axios
-// ! mkdnksandka
-// ? mkdnksandka

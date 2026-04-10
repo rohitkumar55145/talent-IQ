@@ -1,5 +1,5 @@
 import express from "express"
-import { protectRoute } from "../middleware/protectRoute"
+import { protectRoute } from "../middleware/protectRoute.js"
 import {
   createSession,
   endSession,
@@ -11,13 +11,11 @@ import {
 
 const router = express.Router()
 
-router.post("/", protectRoute, createImageBitmap)
-
 router.post("/", protectRoute, createSession)
 router.get("/active", protectRoute, getActiveSessions)
 router.get("/my-recent", protectRoute, getMyRecentSessions)
 
-router.get("/:idx", protectRoute, getSessionById)
+router.get("/:id", protectRoute, getSessionById)
 router.get("/:id/join", protectRoute, joinSession)
 router.get("/:id/end", protectRoute, endSession)
 

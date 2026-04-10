@@ -68,14 +68,16 @@ export async function getMyRecentSessions(req, res) {
     const userId = req.user._id
 
     //get session where user is either host or participant
-    await Session.find({
+    const sessions = await Session.find({
       status: "completed",
       $or: [{ host: userId }, { participant: userId }],
     })
+      .populate("host", "name email profileImage clerkId")
+      .populate("participant", "name email profileImage clerkId")
       .sort({ createdAt: -1 })
       .limit(20)
 
-    res.status(200).json({ Session })
+    res.status(200).json({ sessions })
   } catch (error) {
     console.log("Error in getMyRecentSessions controller:", error.message)
     res.status(500).json({ message: "Internal Sever Error" })

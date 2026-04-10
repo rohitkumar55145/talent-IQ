@@ -1,12 +1,12 @@
 import { Inngest } from "inngest"
 import { connectDB } from "./db.js"
+import { deleteStreamUser } from "./stream.js"
 import User from "../models/User.js"
 
 export const inngest = new Inngest({ id: "talent-iq" })
 
 const syncUser = inngest.createFunction(
-  { id: "sync-user" },
-  { event: "clerk/user.created" },
+  { id: "sync-user", triggers: { event: "clerk/user.created" } },
   async ({ step, input }) => {
     await connectDB()
 
@@ -14,7 +14,7 @@ const syncUser = inngest.createFunction(
 
     const newUser = {
       clerkId: id,
-      email: email_addresses?.[0]?.email_addresses,
+      email: email_addresses?.[0]?.email_address,
       name: `${first_name || ""} ${last_name || ""}`,
       profileImage: image_url,
     }
@@ -41,8 +41,10 @@ const syncUser = inngest.createFunction(
 // )
 
 const deleteUserFromDB = inngest.createFunction(
-  { id: "delete-user-from-db" },
-  { event: "clerk/user.deleted" },
+  {
+    id: "delete-user-from-db",
+    triggers: { event: "clerk/user.deleted" },
+  },
   async ({ event }) => {
     await connectDB()
 
