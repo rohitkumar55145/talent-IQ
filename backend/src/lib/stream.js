@@ -6,7 +6,7 @@ const apiKey = ENV.STREAM_API_KEY
 const apiSecret = ENV.STREAM_API_SECRET
 
 if (!apiKey || !apiSecret) {
-  console.log("STREAM_API_KEY or STREAM_API_SECRET is missing")
+  throw new Error("STREAM_API_KEY and STREAM_API_SECRET are required")
 }
 
 export const streamClient = new StreamClient(apiKey, apiSecret) // will be used for video calls
