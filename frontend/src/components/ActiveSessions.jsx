@@ -39,7 +39,7 @@ function ActiveSessions({ sessions = [], isLoading = false, isUserInSession }) {
             <div className="flex items-center justify-center py-20">
               <LoaderIcon className="size-10 animate-spin text-primary" />
             </div>
-          ) : false ? (
+          ) : sessions.length > 0 ? (
             sessions.map((session) => (
               <div
                 key={session._id}
